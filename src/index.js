@@ -176,7 +176,18 @@ function formatTestMessage(birthDate) {
       message += `• Starts in ${leapInfo.daysUntil} days\n\n`;
     }
 
-    message += `📖 *Preview:*\n${leapInfo.leap.description.substring(0, 200)}...\n`;
+    message += `📖 *About this leap:*\n${leapInfo.leap.description}\n\n`;
+
+    message += `⚠️ *What to expect:*\n`;
+    leapInfo.leap.whatToExpect.forEach(item => {
+      message += `• ${item}\n`;
+    });
+    message += `\n`;
+
+    message += `✨ *New skills developing:*\n`;
+    leapInfo.leap.newSkills.forEach(skill => {
+      message += `• ${skill}\n`;
+    });
   } else {
     message += `✅ All 8 leaps completed! Baby is now a toddler.\n`;
   }
