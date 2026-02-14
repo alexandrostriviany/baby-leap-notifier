@@ -1,0 +1,35 @@
+name: Check Baby Leaps (TEST)
+
+on:
+  schedule:
+    # Run every hour for testing
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # Allow manual triggers
+
+jobs:
+  check-and-notify:
+    runs-on: ubuntu-latest
+    # Only run on testing branch
+    if: github.ref == 'refs/heads/testing'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check leaps and notify (TEST MODE)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BABY_BIRTH_DATE: ${{ secrets.BABY_BIRTH_DATE }}
+          TEST_MODE: 'true'
+        run: npm start

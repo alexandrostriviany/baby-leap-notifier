@@ -1,0 +1,32 @@
+name: Check Baby Leaps
+
+on:
+  schedule:
+    # Run daily at 8:00 AM UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    # Allow manual triggers
+
+jobs:
+  check-and-notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check leaps and notify
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BABY_BIRTH_DATE: ${{ secrets.BABY_BIRTH_DATE }}
+        run: npm start

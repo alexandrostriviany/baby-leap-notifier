@@ -1,0 +1,179 @@
+{
+  "leaps": [
+    {
+      "id": 1,
+      "title": "Leap #1 - The World of Sensations",
+      "minWeeks": 5,
+      "maxWeeks": 6,
+      "description": "As a consequence of eye development, your baby becomes more interested in their environment. Their vision range increases beyond 20-30 centimeters. Due to lacrimal gland development, their eyes begin producing tears. The tears help lubricate their eyes, remove irritants, and aid their immune system.",
+      "whatToExpect": [
+        "Baby may be more fussy and clingy",
+        "Increased crying",
+        "Baby wants more attention",
+        "Sleep may be disrupted",
+        "Appetite changes possible"
+      ],
+      "newSkills": [
+        "Better vision - can see further",
+        "More interested in surroundings",
+        "Real tears when crying",
+        "More alert and aware"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Leap #2 - The World of Patterns",
+      "minWeeks": 8,
+      "maxWeeks": 9,
+      "description": "During this transition, your baby starts developing movement consciously rather than reflectively. They might momentarily lift their head during tummy time and turn towards sounds. They might move and look curiously at both sides of their hands. They now start feeling the movement of their body parts.",
+      "whatToExpect": [
+        "More demanding of attention",
+        "Sleeps poorly",
+        "Cries more",
+        "Wants more physical contact",
+        "May lose appetite"
+      ],
+      "newSkills": [
+        "Conscious movement begins",
+        "Can lift head briefly during tummy time",
+        "Turns head toward sounds",
+        "Discovers own hands",
+        "Smoother movements"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Leap #3 - The World of Smooth Transitions",
+      "minWeeks": 12,
+      "maxWeeks": 12,
+      "description": "Your infant's brain has grown by 25% compared to their due date brain size. Senses like vision and hearing clarity are sharpening. Motion developments let your baby move smoother and less robotic. They might start grabbing, holding, and tasting things by putting them into their mouth.",
+      "whatToExpect": [
+        "Increased fussiness",
+        "More crying than usual",
+        "Clingier behavior",
+        "Sleep disturbances",
+        "Shyness with strangers"
+      ],
+      "newSkills": [
+        "Smoother, less jerky movements",
+        "Can grab and hold objects",
+        "Puts things in mouth to explore",
+        "Better vision and hearing",
+        "More vocal sounds"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Leap #4 - The World of Events",
+      "minWeeks": 15,
+      "maxWeeks": 19,
+      "description": "Your baby starts searching for their caretaker and following them with their eyes. Their upgraded motion control enables them to move all body limbs and pass things from one hand to the other. They see, scent, feel, and taste better. They might start waving and changing facial expressions.",
+      "whatToExpect": [
+        "Very clingy and demanding",
+        "Cries more easily",
+        "Mood swings",
+        "Sleep problems",
+        "May want to nurse more",
+        "Stranger anxiety increases"
+      ],
+      "newSkills": [
+        "Follows you with eyes",
+        "Passes objects hand to hand",
+        "Better coordination",
+        "May start waving",
+        "Facial expressions match emotions",
+        "Understands cause and effect"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Leap #5 - The World of Relationships",
+      "minWeeks": 23,
+      "maxWeeks": 26,
+      "description": "Your baby starts understanding relationships between things. Most importantly, this is when your baby understands the idea of distance. They might protest when you leave the room. Motion control is now even better.",
+      "whatToExpect": [
+        "Separation anxiety peaks",
+        "Cries when you leave the room",
+        "Very clingy",
+        "Sleep regression common",
+        "Mood swings",
+        "May be shy or fearful"
+      ],
+      "newSkills": [
+        "Understands distance",
+        "Knows objects still exist when hidden",
+        "Better problem-solving",
+        "Can find partially hidden toys",
+        "More deliberate movements",
+        "May start crawling attempts"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Leap #6 - The World of Categories",
+      "minWeeks": 29,
+      "maxWeeks": 30,
+      "description": "This period is considered the continuation of Leap 5. Your baby begins paying closer attention to the distance between themselves and their caretakers. They might resist putting themselves to sleep unless caretakers are close enough.",
+      "whatToExpect": [
+        "Increased clinginess",
+        "Resists bedtime",
+        "Wants you constantly nearby",
+        "May wake more at night",
+        "Can be very demanding"
+      ],
+      "newSkills": [
+        "Categorizes things (food vs toys)",
+        "Groups similar objects",
+        "Better understanding of world",
+        "More experimental behavior",
+        "Improved memory"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Leap #7 - The World of Sequences",
+      "minWeeks": 34,
+      "maxWeeks": 37,
+      "description": "Your infant is growing strong and more confident in their movements. They might try to stand aided by you and try to crawl. Balance is developing. They start inspecting things closely - you might see them examining small details like hair on the floor.",
+      "whatToExpect": [
+        "Extreme clinginess possible",
+        "Sleep disruptions",
+        "Mood swings",
+        "May refuse to be dressed",
+        "Impatient behavior"
+      ],
+      "newSkills": [
+        "Understands sequences (first this, then that)",
+        "May start standing with support",
+        "Crawling improves",
+        "Examines tiny details",
+        "Follows simple routines",
+        "Better problem-solving"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Leap #8 - The World of Programs",
+      "minWeeks": 42,
+      "maxWeeks": 47,
+      "description": "The last transition before your infant becomes a toddler. Your baby is now strong enough to explore the world and have opinions. They understand sequential event flows and might refuse their everyday routine. They enjoy meeting new things and going places.",
+      "whatToExpect": [
+        "Tantrums may begin",
+        "Very strong-willed",
+        "Tests boundaries",
+        "Clinginess returns",
+        "Sleep can be disrupted",
+        "May refuse foods they liked"
+      ],
+      "newSkills": [
+        "Understands programs/routines",
+        "Can plan simple actions",
+        "Shows preferences clearly",
+        "More independent",
+        "May start walking",
+        "First words emerging",
+        "Imitates more complex actions"
+      ]
+    }
+  ]
+}
