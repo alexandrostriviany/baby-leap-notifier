@@ -168,24 +168,54 @@ function formatTestMessage(birthDate) {
   message += `• Time: ${new Date().toISOString()}\n\n`;
 
   if (leapInfo) {
+    const leap = leapInfo.leap;
+    const birth = new Date(birthDate);
+
+    const startDate = new Date(birth);
+    startDate.setDate(birth.getDate() + leap.minWeeks * 7);
+    const endDate = new Date(birth);
+    endDate.setDate(birth.getDate() + leap.maxWeeks * 7 + 6);
+
+    const formatDate = (date) => date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric'
+    });
+
+    const formatGoogleDate = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}${month}${day}`;
+    };
+
     if (leapInfo.status === 'active') {
-      message += `🔄 *Currently in:* ${leapInfo.leap.title}\n`;
+      message += `🔄 *Currently in:* ${leap.title}\n`;
       message += `• ${leapInfo.daysLeft} days until this leap ends\n\n`;
     } else {
-      message += `⏳ *Next leap:* ${leapInfo.leap.title}\n`;
+      message += `⏳ *Next leap:* ${leap.title}\n`;
       message += `• Starts in ${leapInfo.daysUntil} days\n\n`;
     }
 
-    message += `📖 *About this leap:*\n${leapInfo.leap.description}\n\n`;
+    message += `📅 *Dates:*\n`;
+    message += `• Start: ${formatDate(startDate)}\n`;
+    message += `• End: ${formatDate(endDate)}\n\n`;
+
+    const calendarTitle = encodeURIComponent(leap.title);
+    const calendarDetails = encodeURIComponent(`Baby developmental leap. ${leap.description.substring(0, 200)}...`);
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${calendarTitle}&dates=${formatGoogleDate(startDate)}/${formatGoogleDate(endDate)}&details=${calendarDetails}`;
+    message += `[📆 Add to Google Calendar](${googleCalendarUrl})\n\n`;
+
+    message += `📖 *About this leap:*\n${leap.description}\n\n`;
 
     message += `⚠️ *What to expect:*\n`;
-    leapInfo.leap.whatToExpect.forEach(item => {
+    leap.whatToExpect.forEach(item => {
       message += `• ${item}\n`;
     });
     message += `\n`;
 
     message += `✨ *New skills developing:*\n`;
-    leapInfo.leap.newSkills.forEach(skill => {
+    leap.newSkills.forEach(skill => {
       message += `• ${skill}\n`;
     });
   } else {
