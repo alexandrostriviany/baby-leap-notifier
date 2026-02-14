@@ -115,9 +115,22 @@ function formatLeapMessage(leap, messageType, birthDate) {
       day: 'numeric'
     });
 
+    // Format date for Google Calendar (YYYYMMDD)
+    const formatGoogleDate = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}${month}${day}`;
+    };
+
+    const calendarTitle = encodeURIComponent(leap.title);
+    const calendarDetails = encodeURIComponent(`Baby developmental leap. ${leap.description.substring(0, 200)}...`);
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${calendarTitle}&dates=${formatGoogleDate(startDate)}/${formatGoogleDate(endDate)}&details=${calendarDetails}`;
+
     message += `📅 *Dates:*\n`;
     message += `• Start: ${formatDate(startDate)}\n`;
     message += `• End: ${formatDate(endDate)}\n\n`;
+    message += `[📆 Add to Google Calendar](${googleCalendarUrl})\n\n`;
   }
 
   message += `📖 *About this leap:*\n${leap.description}\n\n`;
