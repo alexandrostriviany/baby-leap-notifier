@@ -72,7 +72,7 @@ function getCurrentOrNextLeap(birthDate) {
   return null;
 }
 
-function formatLeapMessage(leap, messageType) {
+function formatLeapMessage(leap, messageType, birthDate) {
   let emoji, header;
 
   switch (messageType) {
@@ -100,6 +100,26 @@ function formatLeapMessage(leap, messageType) {
   let message = `${emoji} *${header}*\n\n`;
   message += `*${leap.title}*\n`;
   message += `_(Weeks ${leap.minWeeks}-${leap.maxWeeks})_\n\n`;
+
+  // Add start and end dates for upcoming leaps
+  if (messageType === 'upcoming' && birthDate) {
+    const birth = new Date(birthDate);
+    const startDate = new Date(birth);
+    startDate.setDate(birth.getDate() + leap.minWeeks * 7);
+    const endDate = new Date(birth);
+    endDate.setDate(birth.getDate() + leap.maxWeeks * 7 + 6);
+
+    const formatDate = (date) => date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric'
+    });
+
+    message += `📅 *Dates:*\n`;
+    message += `• Start: ${formatDate(startDate)}\n`;
+    message += `• End: ${formatDate(endDate)}\n\n`;
+  }
+
   message += `📖 *About this leap:*\n${leap.description}\n\n`;
 
   if (messageType !== 'ending') {
@@ -189,19 +209,19 @@ async function checkAndNotify() {
 
     if (status.isUpcoming) {
       console.log(`Leap ${leap.id} is upcoming in ${status.daysUntilStart} days`);
-      const message = formatLeapMessage(leap, 'upcoming');
+      const message = formatLeapMessage(leap, 'upcoming', BABY_BIRTH_DATE);
       if (await sendNotification(message)) notificationsSent++;
     }
 
     if (status.isStartingToday) {
       console.log(`Leap ${leap.id} is starting today!`);
-      const message = formatLeapMessage(leap, 'starting');
+      const message = formatLeapMessage(leap, 'starting', BABY_BIRTH_DATE);
       if (await sendNotification(message)) notificationsSent++;
     }
 
     if (status.isEndingToday) {
       console.log(`Leap ${leap.id} is ending today!`);
-      const message = formatLeapMessage(leap, 'ending');
+      const message = formatLeapMessage(leap, 'ending', BABY_BIRTH_DATE);
       if (await sendNotification(message)) notificationsSent++;
     }
   }
